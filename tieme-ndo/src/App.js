@@ -13,7 +13,7 @@ import SignIn from './components/Forms/SignIn';
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <h1>Tieme Ndo</h1>
 
       <Route exact path="/" component={SignIn} /> 
 
