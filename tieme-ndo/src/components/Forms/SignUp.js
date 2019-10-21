@@ -33,12 +33,23 @@ const SignUp = () => {
     };
 
     const register = e => {
+        if (pass === confirmPass) {
         e.preventDefault();
 
         axiosWithAuth()
         .post('/api/register')
         .then(res => console.log(res))
         .catch(err => console.log(err))
+        } else {
+            e.preventDefault();
+            alert('Error! Passwords do not match!')
+        }
+    }
+
+    const passConfirm = () => {
+        return pass === '' && confirmPass === '' || confirmPass.length === 0 ? ''
+        : pass === confirmPass ? <PassMatch>Passwords match!</PassMatch>
+        : <NoPassMatch>Passwords must match!</NoPassMatch>;
     }
 
     return (
@@ -47,7 +58,7 @@ const SignUp = () => {
                 <input type="text" value={user} onChange={userHandler} placeholder="Username" />
                 <input type="password" value={pass} onChange={passHandler} placeholder="Password" />
                 <input type="password" value={confirmPass} onChange={confirmHandler} placeholder="Confirm Password" />
-                {pass === confirmPass ? <PassMatch>Passwords match!</PassMatch> : <NoPassMatch>Passwords must match!</NoPassMatch>}
+                {passConfirm()}
                 <input type="email" value={email} onChange={emailHandler} placeholder="Email Address" />
                 <button>Register</button>
             </form>
