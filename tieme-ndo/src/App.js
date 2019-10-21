@@ -14,9 +14,8 @@ function App() {
   return (
     <div className="App">
       <h1>App</h1>
-      <SignIn />
 
-      <Route path="/login" component={App} /> 
+      <Route exact path="/" component={SignIn} /> 
 
       <Route path="/sign-up" component={SignUp} />
 
