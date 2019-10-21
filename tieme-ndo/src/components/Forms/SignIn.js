@@ -16,12 +16,21 @@ const SignIn = () => {
     const login = e => {
         e.preventDefault();
 
+        const credentials = {
+            username: user,
+            password: pass
+        }
+
+        axiosWithAuth()
+        .post('/api/login', credentials)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
 
     return (
         <div>
-            <form>
+            <form onSubmit={login}>
                 <input type="text" value={user} onChange={userHandler} placeholder="Username" />
                 <input type="password" value ={pass} onChange={passHandler} placeholder="Password" />
                 <button>Sign In</button>
