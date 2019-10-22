@@ -54,7 +54,7 @@ const HeaderNav = () => {
 export default HeaderNav;
 
 // FONT COLOR --- color: #363636;
-// CallToAction ---     color: #46d2a3;
+// CallToAction ---     color: #46D1A3;
 // SECTION ---   background-color: #fff;
 // ALT SECTION 1 ---    background-color: #4e4e4e;
 // ALT SECTION 2 ---  rgba(17, 17, 17, .3)
