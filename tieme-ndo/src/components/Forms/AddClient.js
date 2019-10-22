@@ -1,21 +1,5 @@
 import React, { useState } from "react";
 
-//This Function should be housed in App.... I think? or wherever the clients data store lives at.
-
-
-// const addNewClient = client => {
-//     const newClient = {
-//         id: Date.now(),
-//         name: client.name,
-//         village: client.village,
-//         loanAmount: client.loanAmount,
-//         loanInitialDate: client.loanInitialDate,
-//         loanDueDate: client.loanDueDate
-//     };
-//     setClients([...clients, newClient]);
-// };
-
-//Beginning of Component
 const AddClient = props => {
     const [client, setClient] = useState({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
 
@@ -25,7 +9,15 @@ const AddClient = props => {
 
     const submitForm = event => {
         event.preventDefault();
-        props.addNewClient(client);
+        const newClient = {
+            id: Date.now(),
+            name: client.name,
+            village: client.village,
+            loanAmount: client.loanAmount,
+            loanInitialDate: client.loanInitialDate,
+            loanDueDate: client.loanDueDate
+        //Make an API post request here to send newClient object.  If response is successful, then update state, else error msg.
+        };
         setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
     };
 
@@ -63,7 +55,7 @@ const AddClient = props => {
             <label htmlFor="loanDueDate">Loan Due Date:</label>
                 <input
                     id="loanDueDate"
-                    name="loanDueDatet"
+                    name="loanDueDate"
                     onChange={handleChanges}
                     value={client.loanDueDate}
                 />
