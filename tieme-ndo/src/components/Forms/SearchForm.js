@@ -23,37 +23,40 @@ const StyledCardsContainer = styled.div`
 `;
 
 const SearchForm = (props) => {
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   
-  const filteredClient = props.clients.filter(client =>
-        client.name.toLowerCase().includes(query.toLowerCase())
-      );
+  // const filteredClient = props.clients.filter(client =>
+  //       client.name.toLowerCase().includes(query.toLowerCase())
+  //     );
   
-  const handleInputChange = event => {
-    setQuery(event.target.value);
-  };
+  // const handleInputChange = event => {
+  //   setQuery(event.target.value);
+  // };
 
+  // return (
+  //   <section className="search-form">
+  //     <StyledForm className="search">
+  //       <StyledInput
+  //         type="text"
+  //         onChange={handleInputChange}
+  //         value={query}
+  //         name="name"
+  //         tabIndex="0"
+  //         className="prompt search-name"
+  //         placeholder="search by name"
+  //         autoComplete="off"
+  //       />
+  //     </StyledForm>
+  //     <StyledCardsContainer className="list">
+  //       {filteredClient.map(client => {
+  //         return <ClientCard key={client.name} client={client} />
+  //       })}
+  //     </StyledCardsContainer>
+  //   </section>
+  // );
   return (
-    <section className="search-form">
-      <StyledForm className="search">
-        <StyledInput
-          type="text"
-          onChange={handleInputChange}
-          value={query}
-          name="name"
-          tabIndex="0"
-          className="prompt search-name"
-          placeholder="search by name"
-          autoComplete="off"
-        />
-      </StyledForm>
-      <StyledCardsContainer className="list">
-        {filteredClient.map(client => {
-          return <ClientCard key={client.name} client={client} />
-        })}
-      </StyledCardsContainer>
-    </section>
-  );
+  <p>asdf</p>
+  )
 }
 
 export default SearchForm;

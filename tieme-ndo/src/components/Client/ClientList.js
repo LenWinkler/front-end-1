@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchData } from '../../actions/index';
 import SearchForm from '../Forms/SearchForm';
-import HeaderNav from '../../HeaderNav';
 
-const ClientList = () => {
-  const [clients, setClients] = useState([]);
-
-	useEffect(() => {
-    axios
-      .get(`https://rickandmortyapi.com/api/character/`)
-			.then(response => {
-        console.log(response);
-        setClients(response.data.results);
-			})
-			.catch(error => {
-				console.log(error);
-			});
-  }, []);
+const ClientList = props => {
+  
+  useEffect(() => {
+    props.fetchData();
+  }, [])
 
 	return (
     <div>
-      <HeaderNav />
-      <SearchForm clients={clients}/>
+        <SearchForm clients={props.clients}/>
     </div>
 	)
 }
 
-export default ClientList;
+const mapStateToProps = state => {
+  return {
+    clients: state.farmers
+  }
+}
+
+export default connect(mapStateToProps, { fetchData })(ClientList);

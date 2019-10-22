@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 //This Function should be housed in App.... I think? or wherever the clients data store lives at.
-const addNewClient = client => {
-    const newClient = {
-        id: Date.now(),
-        name: client.name,
-        village: client.village,
-        loanAmount: client.loanAmount,
-        loanInitialDate: client.loanInitialDate,
-        loanDueDate: client.loanDueDate
-    };
-    setClients([...clients, newClient]);
-};
+// const addNewClient = client => {
+//     const newClient = {
+//         id: Date.now(),
+//         name: client.name,
+//         village: client.village,
+//         loanAmount: client.loanAmount,
+//         loanInitialDate: client.loanInitialDate,
+//         loanDueDate: client.loanDueDate
+//     };
+//     setClients([...clients, newClient]);
+// };
 
 //Beginning of Component
 const AddClient = props => {
