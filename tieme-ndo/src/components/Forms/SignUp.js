@@ -33,13 +33,22 @@ const SignUp = () => {
     };
 
     const register = e => {
+        const newUser = {
+            username: user,
+            password: pass,
+            email: email
+        }
+
         if (pass === confirmPass) {
         e.preventDefault();
 
         axiosWithAuth()
-        .post('/api/register')
-        .then(res => console.log(res))
+        .post('/api/register', newUser)
+        .then(res => console.log('register res', res))
         .catch(err => console.log(err))
+        setUser('');
+        setPass('');
+        setEmail('');
         } else {
             e.preventDefault();
             alert('Error! Passwords do not match!')
@@ -55,11 +64,11 @@ const SignUp = () => {
     return (
         <div>
             <form onSubmit={register}>
-                <input type="text" value={user} onChange={userHandler} placeholder="Username" />
-                <input type="password" value={pass} onChange={passHandler} placeholder="Password" />
-                <input type="password" value={confirmPass} onChange={confirmHandler} placeholder="Confirm Password" />
+                <input type="text" name="user" value={user} onChange={userHandler} placeholder="Username" />
+                <input type="password" name="password" value={pass} onChange={passHandler} placeholder="Password" />
+                <input type="password" name="confirm password" value={confirmPass} onChange={confirmHandler} placeholder="Confirm Password" />
                 {passConfirm()}
-                <input type="email" value={email} onChange={emailHandler} placeholder="Email Address" />
+                <input type="email" name="email" value={email} onChange={emailHandler} placeholder="Email Address" />
                 <button>Register</button>
             </form>
         </div>
