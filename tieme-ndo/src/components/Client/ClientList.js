@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchForm from '../Forms/SearchForm';
+import HeaderNav from '../../HeaderNav';
 
 const ClientList = () => {
   const [clients, setClients] = useState([]);
@@ -19,7 +20,8 @@ const ClientList = () => {
 
 	return (
     <div>
-        <SearchForm clients={clients}/>
+      <HeaderNav />
+      <SearchForm clients={clients}/>
     </div>
 	)
 }
