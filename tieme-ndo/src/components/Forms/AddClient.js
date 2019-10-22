@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 //This Function should be housed in App.... I think? or wherever the clients data store lives at.
+
+
 // const addNewClient = client => {
 //     const newClient = {
 //         id: Date.now(),

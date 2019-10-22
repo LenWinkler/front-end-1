@@ -10,7 +10,7 @@ const NoPassMatch = styled.p`
     color: red;
 `
 
-const SignUp = () => {
+const SignUp = props => {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
@@ -44,7 +44,10 @@ const SignUp = () => {
 
         axiosWithAuth()
         .post('/api/register', newUser)
-        .then(res => alert(`Succesfully created user "${res.data.info.username}"!`))
+        .then(res => {
+            alert(`Succesfully created user "${res.data.info.username}"!`)
+            props.history.push('/')
+    })
         .catch(err => console.log(err))
         setUser('');
         setPass('');

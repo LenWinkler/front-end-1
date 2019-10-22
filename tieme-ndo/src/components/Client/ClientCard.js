@@ -23,7 +23,7 @@ const ClientCard = props => {
 	return (
 		<StyledCard className="card">
       <StyledName>{props.client.name}</StyledName>
-			<StyledPic src={props.client.image} alt="rick and morty character" />
+			{/* <StyledPic src={props.client.image} alt="rick and morty character" /> */}
 		</StyledCard>
 	)
 }

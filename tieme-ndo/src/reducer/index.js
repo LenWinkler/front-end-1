@@ -1,7 +1,7 @@
 import { FETCH_DATA } from '../actions/index';
 
 const initialState = {
-    farmers: ["No farmer data"]
+    farmers: []
 }
 
 const reducer = (state = initialState, action) => {
