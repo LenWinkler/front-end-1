@@ -44,10 +44,11 @@ const SignUp = () => {
 
         axiosWithAuth()
         .post('/api/register', newUser)
-        .then(res => console.log('register res', res))
+        .then(res => alert(`Succesfully created user "${res.data.info.username}"!`))
         .catch(err => console.log(err))
         setUser('');
         setPass('');
+        setConfirmPass('');
         setEmail('');
         } else {
             e.preventDefault();
@@ -61,11 +62,17 @@ const SignUp = () => {
         : <NoPassMatch>Passwords must match!</NoPassMatch>;
     }
 
+    const passLength = () => {
+        return pass.length === 0 || pass.length > 3 ? ''
+        : <NoPassMatch>Password must be at least 4 characters!</NoPassMatch>
+    }
+
     return (
         <div>
             <form onSubmit={register}>
                 <input type="text" name="user" value={user} onChange={userHandler} placeholder="Username" />
                 <input type="password" name="password" value={pass} onChange={passHandler} placeholder="Password" />
+                {passLength()}
                 <input type="password" name="confirm password" value={confirmPass} onChange={confirmHandler} placeholder="Confirm Password" />
                 {passConfirm()}
                 <input type="email" name="email" value={email} onChange={emailHandler} placeholder="Email Address" />
