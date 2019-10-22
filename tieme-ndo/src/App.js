@@ -6,9 +6,10 @@ import SignUp from './components/Forms/SignUp';
 import StaffList from './components/Staff/StaffList';
 import StaffCard from './components/Staff/StaffCard';
 import ClientCard from './components/Client/ClientCard';
-import AddClientForm from './components/Forms/AddClientForm'
-import UpdateClientForm from './components/Forms/UpdateClientForm'
+import AddClient from './components/Forms/AddClient'
+import UpdateClient from './components/Forms/UpdateClient'
 import SignIn from './components/Forms/SignIn';
+import Private from './components/Auth/PrivateRoute';
 
 function App() {
   return (
@@ -19,17 +20,17 @@ function App() {
 
       <Route path="/sign-up" component={SignUp} />
 
-      <Route path="/client-list" component={ClientList} />
+      <Private path="/client-list" component={ClientList} />
 
-      <Route path="/staff-list" component={StaffList} />
+      <Private path="/staff-list" component={StaffList} />
 
-      <Route path="/staff-card/:id" component={StaffCard} />
+      <Private path="/staff-card/:id" component={StaffCard} />
 
-      <Route path="/client-card/:id" component={ClientCard} />
+      <Private path="/client-card/:id" component={ClientCard} />
 
-      <Route path="/add-client" component={AddClientForm} />
+      <Private path="/add-client" component={AddClient} />
 
-      <Route path="/update-client/:id" component={UpdateClientForm} />
+      <Private path="/update-client/:id" component={UpdateClient} />
     </div>
   );
 }
