@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../Auth/AxiosWithAuth';
 
-const SignIn = () => {
+const SignIn = props => {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
 
@@ -23,7 +23,10 @@ const SignIn = () => {
 
         axiosWithAuth()
         .post('/api/login', credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            props.history.push('/client-list')
+        })
         .catch(err => console.log(err))
     }
 
@@ -34,6 +37,7 @@ const SignIn = () => {
                 <input type="text" value={user} onChange={userHandler} placeholder="Username" />
                 <input type="password" value ={pass} onChange={passHandler} placeholder="Password" />
                 <button>Sign In</button>
+                <button onClick={() => {props.history.push('/sign-up')}}>Sign Up</button>
             </form>
         </div>
     )
