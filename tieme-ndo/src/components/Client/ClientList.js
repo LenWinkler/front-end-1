@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchData } from '../../actions/index';
 import SearchForm from '../Forms/SearchForm';
 import ClientCard from './ClientCard';
+import TableHeader from './TableHeader';
 
 const ClientList = props => {
   console.log('client list props', props)
@@ -12,10 +13,11 @@ const ClientList = props => {
 
 	return (
     <div>
+      <TableHeader />
       {props.clients.map(item => (
         <ClientCard key={item.id} client={item} />
       ))}
-        <SearchForm clients={props.clients}/>
+        {/* <SearchForm clients={props.clients}/> */}
     </div>
 	)
 }
