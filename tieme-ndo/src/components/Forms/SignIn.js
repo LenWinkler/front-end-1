@@ -23,7 +23,10 @@ const SignIn = props => {
 
         axiosWithAuth()
         .post('/api/login', credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            props.history.push('/client-list')
+        })
         .catch(err => console.log(err))
     }
 
