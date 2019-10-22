@@ -31,6 +31,7 @@ const AddClient = props => {
                     onChange={handleChanges}
                     value={client.name}
                 />
+                {client.name.length === 0 ? <p>Name is required</p> : ''}
             <label htmlFor="village">Village:</label>
                 <input
                     id="village"
@@ -38,6 +39,7 @@ const AddClient = props => {
                     onChange={handleChanges}
                     value={client.village}
                 />
+                {client.village.length === 0 ? <p>Village is required</p> : ''}
             <label htmlFor="loanAmount">Loan Amount:</label>
                 <input
                     id="loanAmount"
@@ -45,6 +47,7 @@ const AddClient = props => {
                     onChange={handleChanges}
                     value={client.loanAmount}
                 />
+                {client.loanAmount.length === 0 ? <p>Enter loan amount</p> : ''}
             <label htmlFor="loanInitialDate">Loan Start Date:</label>
                 <input
                     id="loanInitialDate"
@@ -52,6 +55,7 @@ const AddClient = props => {
                     onChange={handleChanges}
                     value={client.loanInitialDate}
                 />
+                {client.loanInitialDate.length === 0 ? <p>Enter date of loan</p> : ''}
             <label htmlFor="loanDueDate">Loan Due Date:</label>
                 <input
                     id="loanDueDate"
@@ -59,6 +63,7 @@ const AddClient = props => {
                     onChange={handleChanges}
                     value={client.loanDueDate}
                 />
+                {client.loanDueDate.length === 0 ? <p>Enter due date of loan</p> : ''}
             <button type="submit">Add Client</button>
         </form>
     );

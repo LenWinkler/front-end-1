@@ -24,8 +24,10 @@ export const fetchData = () => dispatch => {
 }
 
 export const addData = newClient => dispatch => {
-    dispatch({ type: START_ADD })
+    dispatch({ type: START_ADD });
 
     axiosWithAuth()
     .post('/api/client', newClient)
+    .then(res => dispatch({ type: ADD_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: ADD_FAILURE, payload: err }))
 }
