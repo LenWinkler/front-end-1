@@ -14,7 +14,7 @@ import Private from './components/Auth/PrivateRoute';
 function App() {
   return (
     <div className="App">
-      <h1>Tieme Ndo</h1>
+      {/* <h1>Tieme Ndo</h1> */}
 
       <Route exact path="/" component={SignIn} /> 
 
