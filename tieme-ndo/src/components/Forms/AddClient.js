@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
+import { addData } from '../../actions/index';
 
 const AddClient = props => {
     const [client, setClient] = useState({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
@@ -15,13 +17,19 @@ const AddClient = props => {
             village: client.village,
             loanAmount: client.loanAmount,
             loanInitialDate: client.loanInitialDate,
-            loanDueDate: client.loanDueDate
+            loanDueDate: client.loanDueDate,
+            paidAmount: 0,
+            dueAmount: client.loanAmount,
+            goalBag: 0,
+            achievedBag: 0
         //Make an API post request here to send newClient object.  If response is successful, then update state, else error msg.
         };
-        setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
+        props.addData(newClient);
+        setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "", paidAmount: "", dueAmount: "", goalBag: "", achievedBag: "" });
     };
 
     return (
+    <>
         <form onSubmit={submitForm}>
             <label htmlFor="name">Name:</label>
                 <input
@@ -40,15 +48,7 @@ const AddClient = props => {
                     value={client.village}
                 />
                 {client.village.length === 0 ? <p>Village is required</p> : ''}
-            <label htmlFor="loanAmount">Loan Amount:</label>
-                <input
-                    id="loanAmount"
-                    name="loanAmount"
-                    onChange={handleChanges}
-                    value={client.loanAmount}
-                />
-                {client.loanAmount.length === 0 ? <p>Enter loan amount</p> : ''}
-            <label htmlFor="loanInitialDate">Loan Start Date:</label>
+                <label htmlFor="loanInitialDate">Loan Start Date:</label>
                 <input
                     id="loanInitialDate"
                     name="loanInitialDate"
@@ -64,9 +64,23 @@ const AddClient = props => {
                     value={client.loanDueDate}
                 />
                 {client.loanDueDate.length === 0 ? <p>Enter due date of loan</p> : ''}
+            <label htmlFor="loanAmount">Loan Amount:</label>
+                <input
+                    id="loanAmount"
+                    name="loanAmount"
+                    onChange={handleChanges}
+                    value={client.loanAmount}
+                />
+                {client.loanAmount.length === 0 ? <p>Enter loan amount</p> : ''}
+            
+            
+            
             <button type="submit">Add Client</button>
         </form>
+        
+        <button onClick={() => props.history.push('/client-list')}>Return to Client List</button>
+    </>
     );
 };
 
-export default AddClient;
+export default connect(null, { addData })(AddClient);
