@@ -19,6 +19,8 @@ const UpdateClient = props => {
         achievedBag: 0,
         goalBag: 0
     });
+    const [isUpdating, setIsUpdating] = useState(false);
+
     const handleChanges = e => {
         setClient({ ...client, [e.target.name]: e.target.value });
     }
@@ -75,4 +77,10 @@ const UpdateClient = props => {
 
 }
 
-export default connect(null , { updateData })(UpdateClient);
+const mapStateToProps = state => {
+    return {
+        isUpdating: state.isUpdating
+    }
+}
+
+export default connect(mapStateToProps , { updateData })(UpdateClient);

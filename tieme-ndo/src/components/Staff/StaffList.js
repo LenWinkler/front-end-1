@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchStaffData } from '../../actions/index';
 import Header from '../Misc/Header';
@@ -25,8 +25,9 @@ const StyledLogo = styled.img`
 `;
 
 const StaffList = props => {
-  // console.log('staff list props', props)
+  const [isStaffFetching, setIsStaffFetching] = useState(false)
   useEffect(() => {
+    setIsStaffFetching(props.isStaffFetching);
     props.fetchStaffData();
   }, [])
 
@@ -45,7 +46,8 @@ const StaffList = props => {
 
 const mapStateToProps = state => {
   return {
-    staffMembers: state.employees
+    staffMembers: state.employees,
+    isStaffFetching: state.isStaffFetching
   }
 }
 

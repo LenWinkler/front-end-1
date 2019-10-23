@@ -102,12 +102,12 @@ const reducer = (state = initialState, action) => {
                 error: '',
                 farmers: state.farmers.filter(item => { return item.id !== action.payload})
             }
-            case DELETE_FAILURE:
-                return {
-                    ...state,
-                    error: action.payload,
-                    isDeleting: false
-                }
+        case DELETE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isDeleting: false
+            }
 
             default:
             return state;

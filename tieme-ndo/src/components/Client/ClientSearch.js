@@ -16,7 +16,6 @@ const StyledInput = styled.input`
 `;
 
 const ClientSearch = (props) => {
-  console.log('search props', props)
   const [category, setCategory] = useState('name');
   const [query, setQuery] = useState('');
 
