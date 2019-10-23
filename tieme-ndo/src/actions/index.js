@@ -44,7 +44,18 @@ export const updateData = updatedInfo => dispatch => {
     dispatch({ type: UPDATE_START });
 
     axiosWithAuth()
-    .put('/api/client/')
+    .put(`/api/client/${updatedInfo.id}`, updatedInfo)
+    .then(res => dispatch({ type: UPDATE_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: UPDATE_FAILURE, payload: err }))
+}
+
+export const deleteData = client => dispatch => {
+    dispatch({ type: DELETE_START });
+
+    axiosWithAuth()
+    .delete(`/api/client/${client.id}`)
+    .then(res => dispatch({ type: DELETE_SUCCESS, payload: client.id }))
+    .catch(err => dispatch({ type: DELETE_FAILURE, payload: err }))
 }
 
 //Staff Section

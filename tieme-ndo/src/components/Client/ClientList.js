@@ -24,7 +24,7 @@ const StyledLogo = styled.img`
 `;
 
 const ClientList = props => {
-  // console.log('client list props', props)
+  console.log('client list props', props)
   useEffect(() => {
     props.fetchData();
   }, [])

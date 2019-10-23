@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -61,7 +62,7 @@ const ClientCard = (props) => {
             <StyledTableDataB>${client.dueAmount}</StyledTableDataB>
             <StyledTableDataB>{client.goalBag}</StyledTableDataB>
             <StyledTableDataB>{client.achievedBag}</StyledTableDataB>
-            <StyledTableDataB><StyledButton>update</StyledButton></StyledTableDataB>
+            <StyledTableData><Link to={`/update-client/${client.id}`}>edit</Link></StyledTableData>
           </tr>
           </tbody>
         </StyledTable>
