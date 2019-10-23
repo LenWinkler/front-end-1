@@ -4,6 +4,7 @@ import { addData } from '../../actions/index';
 
 const AddClient = props => {
     const [client, setClient] = useState({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
+    const [isAdding, setIsAdding] = useState(false);
 
     const handleChanges = event => {
         setClient({ ...client, [event.target.name]: event.target.value });
@@ -85,4 +86,10 @@ const AddClient = props => {
     );
 };
 
-export default connect(null, { addData })(AddClient);
+const mapStateToProps = state => {
+    return {
+        isAdding: state.isAdding
+    }
+}
+
+export default connect(mapStateToProps, { addData })(AddClient);

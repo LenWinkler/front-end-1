@@ -24,7 +24,6 @@ const StyledLogo = styled.img`
 `;
 
 const ClientList = props => {
-  console.log('client list props', props)
   useEffect(() => {
     props.fetchData();
   }, [])
@@ -44,7 +43,8 @@ const ClientList = props => {
 
 const mapStateToProps = state => {
   return {
-    clients: state.farmers
+    clients: state.farmers,
+    isFetching: state.isFetching
   }
 }
 

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { deleteData } from '../../actions/index';
 import { connect } from 'react-redux';
 
 
 
 const DeleteClient = props => {
-    console.log('delete props', props)
+    const [isDeleting, setIsDeleting] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -28,4 +28,10 @@ const DeleteClient = props => {
     )
 }
 
-export default connect(null, { deleteData })(DeleteClient);
+const mapStateToProps = state => {
+    return {
+        isDeleting: state.isDeleting
+    }
+}
+
+export default connect(mapStateToProps, { deleteData })(DeleteClient);
