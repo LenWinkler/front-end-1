@@ -7,6 +7,7 @@ import { updateData } from '../../actions/index';
 
 const UpdateClient = props => {
     const [client, setClient] = useState({
+        id: 0,
         name: "",
         village: "",
         loanAmount: 0,

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -32,6 +33,7 @@ const StyledButton = styled.button`
 `;
 
 const ClientCard = props => {
+  console.log('card props', props)
 	return (
 		<StyledDiv>
       <StyledTable>
@@ -46,7 +48,7 @@ const ClientCard = props => {
           <StyledTableData>${props.client.dueAmount}</StyledTableData>
           <StyledTableData>{props.client.goalBag}</StyledTableData>
           <StyledTableData>{props.client.achievedBag}</StyledTableData>
-          <StyledTableData><StyledButton>edit</StyledButton></StyledTableData>
+          <StyledTableData><Link to={`/update-client/${props.client.id}`}>edit</Link></StyledTableData>
         </tr>
         </tbody>
       </StyledTable>

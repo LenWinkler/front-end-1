@@ -81,10 +81,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isUpdating: false,
                 error: '',
-                farmers: state.farmers.filter(item => {
-                    return item.name !== action.payload.name
-                }),
-                farmers: [...state.farmers, action.payload]
+                farmers: [...state.farmers.filter(item => { return item.id !== action.payload.id}), action.payload]
+                // farmers: [...state.farmers, action.payload]
             }
         case UPDATE_FAILURE:
             return {

@@ -4,7 +4,7 @@ import { fetchData } from '../../actions/index';
 import ClientSearch from './ClientSearch';
 
 const ClientList = props => {
-  // console.log('client list props', props)
+  console.log('client list props', props)
   useEffect(() => {
     props.fetchData();
   }, [])
