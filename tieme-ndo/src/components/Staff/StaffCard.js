@@ -13,30 +13,25 @@ const StyledCard = styled.div`
 `;
 
 const StyledAvatar = styled.img`
-  width: 220px;
+  width: 225px;
   margin: 10px;
-  border: 1px solid #95BBDF;
+  border: transparent;
   border-radius: 10px;
 `;
 
-const StyledName = styled.p`
-  margin: 2px auto;
+const StyledParagraph = styled.p`
   color: #FEFEFE;
   font-family: 'Lato', sans-serif;
-`;
-
-const StyledEmail = styled.p`
-  margin: 2xp auto;
-  color: #FEFEFE;
-  font-family: 'Lato', sans-serif;
+  margin: 0 auto;
+  margin-bottom: 10px;
 `;
 
 const ClientCard = props => {
 	return (
         <StyledCard>
           <StyledAvatar src={avatar} alt='blank avatar placeholder'/>
-          <StyledName>USERNAME: {props.member.username}</StyledName>
-          <StyledEmail>EMAIL: {props.member.email}</StyledEmail>
+          <StyledParagraph>USERNAME: {props.member.username}</StyledParagraph>
+          <StyledParagraph>EMAIL: {props.member.email}</StyledParagraph>
         </StyledCard>
 	)
 }

@@ -10,22 +10,32 @@ const StyledTable = styled.table`
   width: 90%
 `;
 
-const StyledTableData = styled.td`
+const StyledTableDataA = styled.td`
   color: #333333;
   font-family: 'Lato', sans-serif;
   padding: 5px 5px;
   margin: 0 auto;
-  width: 10%;
+  width: 18%;
+  border: 1px solid black;
+`;
+
+const StyledTableDataB = styled.td`
+  color: #333333;
+  font-family: 'Lato', sans-serif;
+  padding: 5px 5px;
+  margin: 0 auto;
+  width: 8%;
   border: 1px solid black;
 `;
 
 const StyledButton = styled.button`
-  width: 70px;
+  width: 75px;
   border: 1px solid #333333;
   border-radius: 5px;
-  color: #FEFEFE;
-  background-color: #333333;
+  color: #333333;
+  background-color: #73A85A;
   font-family: 'Lato', sans-serif;
+  font-weight: bold;
 
   :hover {
     color: black;
@@ -42,16 +52,16 @@ const ClientCard = (props) => {
         <StyledTable>
           <tbody>
           <tr>
-            <StyledTableData>{client.name}</StyledTableData>
-            <StyledTableData>{client.village}</StyledTableData>
-            <StyledTableData>{client.loanInitialDate}</StyledTableData>
-            <StyledTableData>{client.loanDueDate}</StyledTableData>
-            <StyledTableData>${client.loanAmount}</StyledTableData>
-            <StyledTableData>${client.paidAmount}</StyledTableData>
-            <StyledTableData>${client.dueAmount}</StyledTableData>
-            <StyledTableData>{client.goalBag}</StyledTableData>
-            <StyledTableData>{client.achievedBag}</StyledTableData>
-            <StyledTableData><StyledButton>update</StyledButton></StyledTableData>
+            <StyledTableDataA>{client.name}</StyledTableDataA>
+            <StyledTableDataA>{client.village}</StyledTableDataA>
+            <StyledTableDataB>{client.loanInitialDate}</StyledTableDataB>
+            <StyledTableDataB>{client.loanDueDate}</StyledTableDataB>
+            <StyledTableDataB>${client.loanAmount}</StyledTableDataB>
+            <StyledTableDataB>${client.paidAmount}</StyledTableDataB>
+            <StyledTableDataB>${client.dueAmount}</StyledTableDataB>
+            <StyledTableDataB>{client.goalBag}</StyledTableDataB>
+            <StyledTableDataB>{client.achievedBag}</StyledTableDataB>
+            <StyledTableDataB><StyledButton>update</StyledButton></StyledTableDataB>
           </tr>
           </tbody>
         </StyledTable>

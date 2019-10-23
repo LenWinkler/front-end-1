@@ -10,12 +10,20 @@ const StyledTable = styled.table`
   width: 90%
 `;
 
-const StyledTableHeader = styled.th`
+const StyledTableHeaderA = styled.th`
     color: #FEFEFE;
     background-color: #333333;
     padding: 5px 5px;
     margin: 0 auto;
-    width: 10%;
+    width: 18%;
+`;
+
+const StyledTableHeaderB = styled.th`
+    color: #FEFEFE;
+    background-color: #333333;
+    padding: 5px 5px;
+    margin: 0 auto;
+    width: 8%;
 `;
 
 const TableHeader = () => {
@@ -24,16 +32,16 @@ const TableHeader = () => {
             <StyledTable>
                 <thead>
                 <tr>
-                    <StyledTableHeader>Client</StyledTableHeader>
-                    <StyledTableHeader>Village</StyledTableHeader>
-                    <StyledTableHeader>Loan Start</StyledTableHeader>
-                    <StyledTableHeader>Loan Due</StyledTableHeader>
-                    <StyledTableHeader>Loan Amount</StyledTableHeader>
-                    <StyledTableHeader>Paid Amount</StyledTableHeader>
-                    <StyledTableHeader>Balance</StyledTableHeader>
-                    <StyledTableHeader>Bags To Sell</StyledTableHeader>
-                    <StyledTableHeader>Bags To Keep</StyledTableHeader>
-                    <StyledTableHeader></StyledTableHeader>
+                    <StyledTableHeaderA>Client</StyledTableHeaderA>
+                    <StyledTableHeaderA>Village</StyledTableHeaderA>
+                    <StyledTableHeaderB>Loan Start</StyledTableHeaderB>
+                    <StyledTableHeaderB>Loan Due</StyledTableHeaderB>
+                    <StyledTableHeaderB>Loan Amount</StyledTableHeaderB>
+                    <StyledTableHeaderB>Paid Amount</StyledTableHeaderB>
+                    <StyledTableHeaderB>Balance</StyledTableHeaderB>
+                    <StyledTableHeaderB>Bags To Sell</StyledTableHeaderB>
+                    <StyledTableHeaderB>Bags To Keep</StyledTableHeaderB>
+                    <StyledTableHeaderB>Update</StyledTableHeaderB>
                 </tr>
                 </thead>
             </StyledTable>
