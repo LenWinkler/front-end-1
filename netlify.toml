@@ -1,9 +1,9 @@
 [build]
-command = "npm run build"
-publish = "front-end/tieme-ndo"
-base = "front-end/tieme-ndo" 
+    command = "npm run build"
+    publish = "front-end/tieme-ndo"
+    base = "front-end/tieme-ndo" 
 
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+    from = "/*"
+    to = "/index.html"
+    status = 200
