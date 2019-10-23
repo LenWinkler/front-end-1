@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/index';
-import SearchForm from '../Forms/SearchForm';
-import ClientCard from './ClientCard';
-import TableHeader from './TableHeader';
+import ClientSearch from './ClientSearch';
 
 const ClientList = props => {
-  console.log('client list props', props)
+  // console.log('client list props', props)
   useEffect(() => {
     props.fetchData();
   }, [])
 
 	return (
     <div>
-      <SearchForm clients={props.clients}/>
+      <ClientSearch clients={props.clients}/>
     </div>
 	)
 }
