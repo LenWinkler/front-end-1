@@ -11,20 +11,32 @@ const StyledTable = styled.table`
   width: 90%
 `;
 
-const StyledTableData = styled.td`
+const StyledTableDataA = styled.td`
   color: #333333;
+  font-family: 'Lato', sans-serif;
   padding: 5px 5px;
   margin: 0 auto;
-  width: 10%;
+  width: 18%;
+  border: 1px solid black;
+`;
+
+const StyledTableDataB = styled.td`
+  color: #333333;
+  font-family: 'Lato', sans-serif;
+  padding: 5px 5px;
+  margin: 0 auto;
+  width: 8%;
   border: 1px solid black;
 `;
 
 const StyledButton = styled.button`
-  width: 70px;
+  width: 75px;
   border: 1px solid #333333;
   border-radius: 5px;
-  color: #FEFEFE;
-  background-color: #333333;
+  color: #333333;
+  background-color: #73A85A;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 
   :hover {
     color: black;
@@ -32,29 +44,34 @@ const StyledButton = styled.button`
   }
 `;
 
-const ClientCard = props => {
-  console.log('card props', props)
-	return (
-		<StyledDiv>
-      <StyledTable>
-        <tbody>
-        <tr>
-          <StyledTableData>{props.client.name}</StyledTableData>
-          <StyledTableData>{props.client.village}</StyledTableData>
-          <StyledTableData>{props.client.loanInitialDate}</StyledTableData>
-          <StyledTableData>{props.client.loanDueDate}</StyledTableData>
-          <StyledTableData>${props.client.loanAmount}</StyledTableData>
-          <StyledTableData>${props.client.paidAmount}</StyledTableData>
-          <StyledTableData>${props.client.dueAmount}</StyledTableData>
-          <StyledTableData>{props.client.goalBag}</StyledTableData>
-          <StyledTableData>{props.client.achievedBag}</StyledTableData>
-          <StyledTableData><Link to={`/update-client/${props.client.id}`}>edit</Link></StyledTableData>
-        </tr>
-        </tbody>
-      </StyledTable>
-      
-		</StyledDiv>
-	)
+const ClientCard = (props) => {
+  return (
+    <div className="list">
+    {props.filteredClient.map(client => {
+      return (
+        <StyledDiv>
+        <StyledTable>
+          <tbody>
+          <tr>
+            <StyledTableDataA>{client.name}</StyledTableDataA>
+            <StyledTableDataA>{client.village}</StyledTableDataA>
+            <StyledTableDataB>{client.loanInitialDate}</StyledTableDataB>
+            <StyledTableDataB>{client.loanDueDate}</StyledTableDataB>
+            <StyledTableDataB>${client.loanAmount}</StyledTableDataB>
+            <StyledTableDataB>${client.paidAmount}</StyledTableDataB>
+            <StyledTableDataB>${client.dueAmount}</StyledTableDataB>
+            <StyledTableDataB>{client.goalBag}</StyledTableDataB>
+            <StyledTableDataB>{client.achievedBag}</StyledTableDataB>
+            <StyledTableData><Link to={`/update-client/${client.id}`}>edit</Link></StyledTableData>
+          </tr>
+          </tbody>
+        </StyledTable>
+        
+      </StyledDiv>
+      )
+    })}
+  </div>
+  )
 }
 
 export default ClientCard;

@@ -1,27 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
-    display: flex;
-    justify-content: center;
-`;
-
 const StyledHeader = styled.h1`
     color: #FEFEFE;
     background-color: #333333;
     font-family: 'Work Sans', sans-serif;
     margin: 0 auto;
-    padding: 20px;
-    // width: 60%;
+    padding: 20px 0;
+    width: 90%;
     border-radius: 10px;
 `;
 
 const Header = props => {
     return (
         <div>
-        <StyledDiv>
             <StyledHeader>Tieme Ndo | {props.title}</StyledHeader>
-        </StyledDiv>
         </div>
     )
 }
