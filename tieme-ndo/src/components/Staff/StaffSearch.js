@@ -17,6 +17,8 @@ const StyledCardList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const StaffSearch = (props) => {

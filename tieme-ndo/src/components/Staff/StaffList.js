@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchStaffData } from '../../actions/index';
 import Header from '../Misc/Header';
-import logo from '../../img/cropped-tiem_logo-3.jpg';
+import AddClientButton from '../Misc/AddClientButton';
 import NavBar from '../Misc/NavBar';
+import PercentPaid from '../Misc/PercentPaid';
 import StaffSearch from './StaffSearch';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px auto 200px;
   justify-content: space-between;
   align-items: center;
   width: 90%;
@@ -33,9 +35,9 @@ const StaffList = props => {
     <div>
       <Header title={`Staff List`} />
       <StyledDiv>
-        <StyledLogo src={logo} alt='tieme ndo logo' />
+        <AddClientButton visibility={'hidden'} />
         <NavBar />
-        <div></div>
+        <PercentPaid visibility={'hidden'} />
       </StyledDiv>
       <StaffSearch staffMembers={props.staffMembers}/>
     </div>
