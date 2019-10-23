@@ -1,10 +1,12 @@
-import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE } from '../actions/index';
+import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE, STAFF_START_FETCH, STAFF_FETCH_SUCCESS, STAFF_FETCH_FAILURE } from '../actions/index';
 
 const initialState = {
     farmers: [],
+    employees: [],
     isFetching: false,
     isAdding: false,
     isDeleting: false,
+    isStaffFetching: false,
     error: ''
 }
 
@@ -48,8 +50,27 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isAdding: false
             }
+        case STAFF_START_FETCH:
+            return {
+                ...state,
+                isStaffFetching: true,
+                error: ''
+            }
+        case STAFF_FETCH_SUCCESS:
+            return {
+                ...state,
+                isStaffFetching: false,
+                error: '',
+                employees: action.payload
+            }
+        case STAFF_FETCH_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isStaffFetching: false
+            }
 
-        default:
+            default:
             return state;
     }
 }

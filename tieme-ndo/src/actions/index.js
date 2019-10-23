@@ -1,6 +1,5 @@
 import axiosWithAuth from '../components/Auth/AxiosWithAuth';
 
-
 export const START_FETCH = 'START_FETCH';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
@@ -17,6 +16,12 @@ export const DELETE_START = 'DELETE_START';
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 export const DELETE_FAILURE ='DELETE_FAILURE';
 
+export const STAFF_START_FETCH = 'STAFF_START_FETCH';
+export const STAFF_FETCH_SUCCESS = 'STAFF_FETCH_SUCCESS';
+export const STAFF_FETCH_FAILURE = 'STAFF_FETCH_FAILURE';
+
+
+//Client Section
 export const fetchData = () => dispatch => {
     dispatch({ type: START_FETCH });
 
@@ -40,4 +45,14 @@ export const updateData = updatedInfo => dispatch => {
 
     axiosWithAuth()
     .put('/api/client/')
+}
+
+//Staff Section
+export const fetchStaffData = () => dispatch => {
+    dispatch({ type: STAFF_START_FETCH });
+
+    axiosWithAuth()
+    .get('api/employee/all')
+    .then(res => dispatch({ type: STAFF_FETCH_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: STAFF_FETCH_FAILURE, payload: err }));
 }
