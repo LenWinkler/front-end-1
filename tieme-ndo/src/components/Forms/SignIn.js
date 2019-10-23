@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../Auth/AxiosWithAuth';
+import Header from '../Misc/Header';
 
 const SignIn = props => {
     const [user, setUser] = useState('');
@@ -33,6 +34,7 @@ const SignIn = props => {
 
     return (
         <div>
+            <Header title={`Welcome`} />
             <form onSubmit={login}>
                 <input type="text" value={user} onChange={userHandler} placeholder="Username" />
                 <input type="password" value ={pass} onChange={passHandler} placeholder="Password" />
