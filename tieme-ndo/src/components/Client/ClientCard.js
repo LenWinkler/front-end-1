@@ -29,18 +29,18 @@ const StyledTableDataB = styled.td`
   border: 1px solid black;
 `;
 
-const StyledButton = styled.button`
-  width: 75px;
+const StyledLink = styled(Link)`
+  text-decoration: none;
   border: 1px solid #333333;
   border-radius: 5px;
+  padding: 2px 15px;
   color: #333333;
   background-color: #73A85A;
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
 
   :hover {
-    color: black;
-    background-color: white;
+    color: #73A85A;
+    background-color: #333333;
   }
 `;
 
@@ -62,7 +62,7 @@ const ClientCard = (props) => {
             <StyledTableDataB>${client.dueAmount}</StyledTableDataB>
             <StyledTableDataB>{client.goalBag}</StyledTableDataB>
             <StyledTableDataB>{client.achievedBag}</StyledTableDataB>
-            <StyledTableData><Link to={`/update-client/${client.id}`}>edit</Link></StyledTableData>
+            <StyledTableDataB><StyledLink to={`/update-client/${client.id}`}>edit</StyledLink></StyledTableDataB>
           </tr>
           </tbody>
         </StyledTable>

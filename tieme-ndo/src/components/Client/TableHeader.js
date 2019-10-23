@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTable = styled.table`
-  width: 90%
+    width: 90%
 `;
 
 const StyledTableHeaderA = styled.th`

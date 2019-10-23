@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
     display: flex;
     align-items: center;
-    // width: 20%;
 `;
 
 const StyledLink = styled(Link)`

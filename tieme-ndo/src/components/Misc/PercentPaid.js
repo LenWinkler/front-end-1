@@ -3,14 +3,6 @@ import { connect } from 'react-redux';
 import { fetchData } from '../../actions/index';
 import styled from 'styled-components';
 
-const StyledDiv = styled.h3`
-    color: #333333;
-    padding: 5px 18px;
-    border: 3px solid #73A85A;
-    border-radius: 50px;
-    font-family: 'Work Sans', sans-serif;
-`;
-    
 const PercentPaid = (props) => {
     useEffect(() => {
         props.fetchData();
@@ -26,6 +18,14 @@ const PercentPaid = (props) => {
         return accountsPaid;
     }
 
+    const StyledDiv = styled.h3`
+        color: #333333;
+        padding: 5px 18px;
+        border: 3px solid #73A85A;
+        border-radius: 50px;
+        font-family: 'Work Sans', sans-serif;
+        visibility: ${props.visibility};
+    `;
 
     return (
         <StyledDiv>
