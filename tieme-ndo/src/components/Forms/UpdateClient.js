@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from '../Auth/AxiosWithAuth';
 import { connect } from 'react-redux';
+import { updateData } from '../../actions/index';
 
 
 
 const UpdateClient = props => {
     const [client, setClient] = useState({
-        id: null,
         name: "",
         village: "",
         loanAmount: 0,
@@ -30,12 +30,18 @@ const UpdateClient = props => {
         })
     }, [])
 
+    const submitChanges = e => {
+        e.preventDefault();
+        props.updateData(client);
+        alert(`Updated information for ${client.name}`);
+        props.history.push('/client-list')
+    }
     
 
     return(
         <>
         <h2>Update Client Information</h2>
-        <form>
+        <form onSubmit={submitChanges}>
             <label>Name:</label>
             <input type="text" name="name" value={client.name} onChange={handleChanges} />
             <label>Village:</label>
@@ -61,4 +67,4 @@ const UpdateClient = props => {
 
 }
 
-export default UpdateClient;
+export default connect(null , { updateData })(UpdateClient);
