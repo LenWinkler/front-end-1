@@ -1,3 +1,8 @@
+[build]
+command = "npm run build"
+publish="front-end/tieme-ndo"
+base = "front-end" 
+
 [[redirects]]
 from = "/*"
 to = "/index.html"
