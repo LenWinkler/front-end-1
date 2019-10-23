@@ -49,6 +49,15 @@ export const updateData = updatedInfo => dispatch => {
     .catch(err => dispatch({ type: UPDATE_FAILURE, payload: err }))
 }
 
+export const deleteData = client => dispatch => {
+    dispatch({ type: DELETE_START });
+
+    axiosWithAuth()
+    .delete(`/api/client/${client.id}`)
+    .then(res => dispatch({ type: DELETE_SUCCESS, payload: client.id }))
+    .catch(err => dispatch({ type: DELETE_FAILURE, payload: err }))
+}
+
 //Staff Section
 export const fetchStaffData = () => dispatch => {
     dispatch({ type: STAFF_START_FETCH });

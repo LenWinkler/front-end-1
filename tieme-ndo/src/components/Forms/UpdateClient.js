@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axiosWithAuth from '../Auth/AxiosWithAuth';
 import { connect } from 'react-redux';
 import { updateData } from '../../actions/index';
+import { Link } from 'react-router-dom';
 
 
 
@@ -63,6 +64,7 @@ const UpdateClient = props => {
             <input type="number" name="goalBag" value={client.goalBag} onChange={handleChanges} />
             <button>Submit Information</button>
         </form>
+        <Link to={`/delete-client/${client.id}`} />
         </>
     )
 

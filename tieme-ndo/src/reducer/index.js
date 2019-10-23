@@ -1,4 +1,4 @@
-import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE, STAFF_START_FETCH, STAFF_FETCH_SUCCESS, STAFF_FETCH_FAILURE, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAILURE } from '../actions/index';
+import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE, STAFF_START_FETCH, STAFF_FETCH_SUCCESS, STAFF_FETCH_FAILURE, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAILURE, DELETE_START, DELETE_SUCCESS, DELETE_FAILURE } from '../actions/index';
 
 const initialState = {
     farmers: [],
@@ -82,7 +82,6 @@ const reducer = (state = initialState, action) => {
                 isUpdating: false,
                 error: '',
                 farmers: [...state.farmers.filter(item => { return item.id !== action.payload.id}), action.payload]
-                // farmers: [...state.farmers, action.payload]
             }
         case UPDATE_FAILURE:
             return {
@@ -90,6 +89,25 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isUpdating: false
             }
+        case DELETE_START:
+            return {
+                ...state,
+                isDeleting: true,
+                error: ''
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                isDeleting: false,
+                error: '',
+                farmers: state.farmers.filter(item => { return item.id !== action.payload})
+            }
+            case DELETE_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload,
+                    isDeleting: false
+                }
 
             default:
             return state;
