@@ -64,7 +64,12 @@ const UpdateClient = props => {
             <input type="number" name="goalBag" value={client.goalBag} onChange={handleChanges} />
             <button>Submit Information</button>
         </form>
-        <Link to={`/delete-client/${client.id}`} />
+        <Link to={{
+            pathname: `/delete-client/${client.id}`,
+            state: {
+                client: client
+            }
+        }}>DELETE THIS CLIENT</Link>
         </>
     )
 
