@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
-import Header from '../Misc/Header';
-import NavBar from '../Misc/NavBar';
 import TableHeader from './TableHeader';
 import ClientCard from './ClientCard';
 
 const StyledForm = styled.form`
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 const StyledInput = styled.input`
@@ -40,8 +39,6 @@ const ClientSearch = (props) => {
 
   return (
     <section>
-      <Header title={`Client List`} />
-      <NavBar />
       <StyledForm className="search">
         <select value={category} onChange={handleSelectChange}>
           <option value='name'>Name</option>
@@ -58,14 +55,9 @@ const ClientSearch = (props) => {
           placeholder="search"
           autoComplete="off"
         />
-        <button type='submit'>Search</button>
       </StyledForm>
       <TableHeader />
-      <div className="list">
-        {filteredClient.map(client => {
-          return <ClientCard key={client.id} client={client} />
-        })}
-      </div>
+      <ClientCard filteredClient={filteredClient} />
     </section>
   );
 }
