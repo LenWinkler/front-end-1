@@ -25,7 +25,9 @@ const AddClient = props => {
         //Make an API post request here to send newClient object.  If response is successful, then update state, else error msg.
         };
         props.addData(newClient);
+        alert(`Successfully added user "${client.name}"`);
         setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "", paidAmount: "", dueAmount: "", goalBag: "", achievedBag: "" });
+        props.history.push('/client-list');
     };
 
     return (
