@@ -26,14 +26,14 @@ const TableHeader = () => {
                 <tr>
                     <StyledTableHeader>Client</StyledTableHeader>
                     <StyledTableHeader>Village</StyledTableHeader>
-                    <StyledTableHeader>Loan Start Date</StyledTableHeader>
-                    <StyledTableHeader>Loan Due Date</StyledTableHeader>
+                    <StyledTableHeader>Loan Start</StyledTableHeader>
+                    <StyledTableHeader>Loan Due</StyledTableHeader>
                     <StyledTableHeader>Loan Amount</StyledTableHeader>
                     <StyledTableHeader>Paid Amount</StyledTableHeader>
                     <StyledTableHeader>Balance</StyledTableHeader>
                     <StyledTableHeader>Bags To Sell</StyledTableHeader>
                     <StyledTableHeader>Bags To Keep</StyledTableHeader>
-                    <StyledTableHeader>Edit Client</StyledTableHeader>
+                    <StyledTableHeader></StyledTableHeader>
                 </tr>
                 </thead>
             </StyledTable>

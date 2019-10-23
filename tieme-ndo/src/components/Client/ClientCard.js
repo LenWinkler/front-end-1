@@ -19,8 +19,16 @@ const StyledTableData = styled.td`
 `;
 
 const StyledButton = styled.button`
-  width: 80px;
-  border-radius: 10px;
+  width: 70px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  color: #FEFEFE;
+  background-color: #333333;
+
+  :hover {
+    color: black;
+    background-color: white;
+  }
 `;
 
 const ClientCard = props => {
@@ -33,9 +41,9 @@ const ClientCard = props => {
           <StyledTableData>{props.client.village}</StyledTableData>
           <StyledTableData>{props.client.loanInitialDate}</StyledTableData>
           <StyledTableData>{props.client.loanDueDate}</StyledTableData>
-          <StyledTableData>{props.client.loanAmount}</StyledTableData>
-          <StyledTableData>{props.client.paidAmount}</StyledTableData>
-          <StyledTableData>{props.client.dueAmount}</StyledTableData>
+          <StyledTableData>${props.client.loanAmount}</StyledTableData>
+          <StyledTableData>${props.client.paidAmount}</StyledTableData>
+          <StyledTableData>${props.client.dueAmount}</StyledTableData>
           <StyledTableData>{props.client.goalBag}</StyledTableData>
           <StyledTableData>{props.client.achievedBag}</StyledTableData>
           <StyledTableData><StyledButton>edit</StyledButton></StyledTableData>

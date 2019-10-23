@@ -13,11 +13,7 @@ const ClientList = props => {
 
 	return (
     <div>
-      <TableHeader />
-      {props.clients.map(item => (
-        <ClientCard key={item.id} client={item} />
-      ))}
-        {/* <SearchForm clients={props.clients}/> */}
+      <SearchForm clients={props.clients}/>
     </div>
 	)
 }
