@@ -19,7 +19,6 @@ const UpdateClient = props => {
         achievedBag: 0,
         goalBag: 0
     });
-    const [isUpdating, setIsUpdating] = useState(false);
 
     const handleChanges = e => {
         setClient({ ...client, [e.target.name]: e.target.value });
@@ -41,7 +40,11 @@ const UpdateClient = props => {
         props.history.push('/client-list')
     }
     
-
+    if (props.isUpdating) {
+        return (
+            <p>Updating Client Information...</p>
+        )
+    } else {
     return(
         <>
         <h2>Update Client Information</h2>
@@ -74,7 +77,7 @@ const UpdateClient = props => {
         }}>DELETE THIS CLIENT</Link>
         </>
     )
-
+  }
 }
 
 const mapStateToProps = state => {

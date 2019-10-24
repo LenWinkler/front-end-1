@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 
 
 const DeleteClient = props => {
-    const [isDeleting, setIsDeleting] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
         props.deleteData(props.location.state.client)
-        alert(`Updated information for ${props.location.state.client.name}`);
+        alert(`${props.location.state.client.name} was deleted`);
         props.history.push('/client-list')
     }
 
@@ -19,6 +18,12 @@ const DeleteClient = props => {
         props.history.push(`/update-client/${props.location.state.client.id}`)
     }
 
+    if (props.isDeleting) {
+        return (
+            <p>Deleting Client...</p>
+        )
+    } else {
+
     return (
         <div>
             <p>Are you sure you want to permanently delete this client?</p>
@@ -26,6 +31,7 @@ const DeleteClient = props => {
             <button onClick={goBack}>No. Go back to the update page.</button>
         </div>
     )
+  }
 }
 
 const mapStateToProps = state => {

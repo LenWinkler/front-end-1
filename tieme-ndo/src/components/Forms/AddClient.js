@@ -31,6 +31,12 @@ const AddClient = props => {
         props.history.push('/client-list');
     };
 
+    if(props.isAdding) {
+        return (
+            <p>Adding Client...</p>
+        )
+    } else {
+
     return (
     <>
         <form onSubmit={submitForm}>
@@ -84,6 +90,7 @@ const AddClient = props => {
         <button onClick={() => props.history.push('/client-list')}>Return to Client List</button>
     </>
     );
+  }
 };
 
 const mapStateToProps = state => {

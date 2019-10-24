@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchStaffData } from '../../actions/index';
 import Header from '../Misc/Header';
@@ -25,23 +25,27 @@ const StyledLogo = styled.img`
 `;
 
 const StaffList = props => {
-  const [isStaffFetching, setIsStaffFetching] = useState(false)
   useEffect(() => {
-    setIsStaffFetching(props.isStaffFetching);
     props.fetchStaffData();
   }, [])
 
-	return (
-    <div>
-      <Header title={`Staff List`} />
-      <StyledDiv>
-        <AddClientButton visibility={'hidden'} />
-        <NavBar />
-        <PercentPaid visibility={'hidden'} />
-      </StyledDiv>
-      <StaffSearch staffMembers={props.staffMembers}/>
-    </div>
-	)
+  if (props.isStaffFetching) {
+    return (
+      <p>Loading Staff Data...</p>
+    )
+  } else {
+    return (
+      <div>
+        <Header title={`Staff List`} />
+        <StyledDiv>
+          <AddClientButton visibility={'hidden'} />
+          <NavBar />
+          <PercentPaid visibility={'hidden'} />
+        </StyledDiv>
+        <StaffSearch staffMembers={props.staffMembers}/>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
