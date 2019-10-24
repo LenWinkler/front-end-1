@@ -40,7 +40,6 @@ const ClientList = props => {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => {

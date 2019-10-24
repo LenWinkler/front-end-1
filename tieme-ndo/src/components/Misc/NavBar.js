@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
     display: flex;
     align-items: center;
-`;
+`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
         color: #73A85A;
         background-color: white;
     }
-`;
+`
 
 const HeaderNav = () => {
     return (

@@ -71,7 +71,17 @@ const AddClient = props => {
         };
         props.addData(newClient);
         alert(`Successfully added user "${client.name}"`);
-        setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "", paidAmount: "", dueAmount: "", goalBag: "", achievedBag: "" });
+        setClient({ 
+            name: "", 
+            village: "", 
+            loanAmount: "", 
+            loanInitialDate: "", 
+            loanDueDate: "", 
+            paidAmount: "", 
+            dueAmount: "", 
+            goalBag: "", 
+            achievedBag: "" 
+        });
         props.history.push('/client-list');
     };
 

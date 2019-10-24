@@ -21,7 +21,7 @@ const StyledInput = styled.input`
 `;
 
 const OverFlow = styled.div`
-  height: 400px;  
+  height: 70vh;  
   overflow: auto;
 `;
 

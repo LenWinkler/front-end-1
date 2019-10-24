@@ -39,7 +39,6 @@ const StaffList = props => {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => {

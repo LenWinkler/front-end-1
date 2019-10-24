@@ -5,19 +5,19 @@ import StaffCard from './StaffCard';
 const StyledSearch = styled.div`
   width: 90%;
   margin: 0 auto;
-`;
+`
 
 const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-`;
+`
 
 const StyledInput = styled.input`
   border: 1px solid black;
   width: 300px;
   font-size: 20px;
-`;
+`
 
 const StyledContainer = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   width: 90%;
   margin: 0 auto;
-`;
+`
 
 const StaffSearch = (props) => {
   const [category, setCategory] = useState('username');

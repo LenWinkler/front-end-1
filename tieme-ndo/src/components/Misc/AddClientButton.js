@@ -18,12 +18,12 @@ const StyledLink = styled(Link)`
         color: #73A85A;
         background-color: white;
     }
-`;
+`
 
 const AddClientButton = (props) => {
     const StyledDiv = styled.div`
         visibility: ${props.visibility};
-    `;
+    `
       
     return (
         <StyledDiv>

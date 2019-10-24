@@ -10,21 +10,21 @@ const StyledCard = styled.div`
   border: 1px solid black;
   border-radius: 10px;
   background-color: #333333;
-`;
+`
 
 const StyledAvatar = styled.img`
   width: 225px;
   margin: 10px;
   border: transparent;
   border-radius: 10px;
-`;
+`
 
 const StyledParagraph = styled.p`
   color: #FEFEFE;
   font-family: 'Lato', sans-serif;
   margin: 0 auto;
   margin-bottom: 10px;
-`;
+`
 
 const ClientCard = props => {
 	return (
