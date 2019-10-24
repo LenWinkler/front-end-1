@@ -5,17 +5,9 @@ import { Link } from 'react-router-dom';
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
 `;
 
-const StyledTable = styled.table`
-  width: 100%
-`;
-
-const StyledTableBody = styled.tbody`
-`;
-
-const StyledTableDataA = styled.td`
+const StyledA = styled.p`
   color: #333333;
   font-family: 'Lato', sans-serif;
   padding: 5px 5px;
@@ -24,7 +16,7 @@ const StyledTableDataA = styled.td`
   border: 1px solid black;
 `;
 
-const StyledTableDataB = styled.td`
+const StyledB = styled.p`
   color: #333333;
   font-family: 'Lato', sans-serif;
   padding: 5px 5px;
@@ -33,7 +25,7 @@ const StyledTableDataB = styled.td`
   border: 1px solid black;
 `;
 
-const StyledTableDataC = styled.td`
+const StyledC = styled.p`
   color: #333333;
   font-family: 'Lato', sans-serif;
   padding: 5px 5px;
@@ -60,22 +52,16 @@ const StyledLink = styled(Link)`
 const ClientCard = (props) => {
   return (
     <StyledDiv>
-      <StyledTable>
-        <StyledTableBody>
-          <tr>
-            <StyledTableDataA>{props.client.name}</StyledTableDataA>
-            <StyledTableDataA>{props.client.village}</StyledTableDataA>
-            <StyledTableDataB>{props.client.loanInitialDate}</StyledTableDataB>
-            <StyledTableDataB>{props.client.loanDueDate}</StyledTableDataB>
-            <StyledTableDataB>{props.client.loanAmount}</StyledTableDataB>
-            <StyledTableDataB>{props.client.paidAmount}</StyledTableDataB>
-            <StyledTableDataB>{props.client.dueAmount}</StyledTableDataB>
-            <StyledTableDataB>{props.client.goalBag}</StyledTableDataB>
-            <StyledTableDataB>{props.client.achievedBag}</StyledTableDataB>
-            <StyledTableDataC><StyledLink to={`/update-client/${props.client.id}`}>edit</StyledLink></StyledTableDataC>
-          </tr>
-        </StyledTableBody>
-      </StyledTable>  
+      <StyledA>{props.client.name}</StyledA>
+      <StyledA>{props.client.village}</StyledA>
+      <StyledB>{props.client.loanInitialDate}</StyledB>
+      <StyledB>{props.client.loanDueDate}</StyledB>
+      <StyledB>{props.client.loanAmount}</StyledB>
+      <StyledB>{props.client.paidAmount}</StyledB>
+      <StyledB>{props.client.dueAmount}</StyledB>
+      <StyledB>{props.client.goalBag}</StyledB>
+      <StyledB>{props.client.achievedBag}</StyledB>
+      <StyledC><StyledLink to={`/update-client/${props.client.id}`}>edit</StyledLink></StyledC> 
     </StyledDiv>
   )
 }

@@ -30,11 +30,11 @@ const StaffList = props => {
     return (
       <div>
         <Header title={`Staff List`} />
-        <StyledDiv>
+        <StyledSubHeader>
           <AddClientButton visibility={'hidden'} />
           <NavBar />
           <PercentPaid visibility={'hidden'} />
-        </StyledDiv>
+        </StyledSubHeader>
         <StaffSearch staffMembers={props.staffMembers}/>
       </div>
     )

@@ -6,13 +6,12 @@ const StyledDiv = styled.div`
     justify-content: center;
     width: 90%;
     margin: 0 auto;
+    position: sticky;
+    top: 0;
 `;
 
-const StyledTable = styled.table`    
-    width: 100%
-`;
-
-const StyledTableHeaderA = styled.th`
+const StyledA = styled.p`
+    font-weight: bold;
     color: #FEFEFE;
     background-color: #333333;
     padding: 5px 5px;
@@ -20,7 +19,8 @@ const StyledTableHeaderA = styled.th`
     width: 16%;
 `;
 
-const StyledTableHeaderB = styled.th`
+const StyledB = styled.p`
+    font-weight: bold;    
     color: #FEFEFE;
     background-color: #333333;
     padding: 5px 5px;
@@ -28,7 +28,8 @@ const StyledTableHeaderB = styled.th`
     width: 9%;
 `;
 
-const StyledTableHeaderC = styled.th`
+const StyledC = styled.p`
+    font-weight: bold;    
     color: #FEFEFE;
     background-color: #333333;
     padding: 5px 5px;
@@ -39,22 +40,16 @@ const StyledTableHeaderC = styled.th`
 const TableHeader = () => {
     return (
         <StyledDiv>
-            <StyledTable>
-                <thead>
-                <tr>
-                    <StyledTableHeaderA>Client</StyledTableHeaderA>
-                    <StyledTableHeaderA>Village</StyledTableHeaderA>
-                    <StyledTableHeaderB>Loan Start</StyledTableHeaderB>
-                    <StyledTableHeaderB>Loan Due</StyledTableHeaderB>
-                    <StyledTableHeaderB>Loan Amount<br></br>GH₵</StyledTableHeaderB>
-                    <StyledTableHeaderB>Paid Amount<br></br>GH₵</StyledTableHeaderB>
-                    <StyledTableHeaderB>Balance<br></br>GH₵</StyledTableHeaderB>
-                    <StyledTableHeaderB>Bags To Sell</StyledTableHeaderB>
-                    <StyledTableHeaderB>Bags To Keep</StyledTableHeaderB>
-                    <StyledTableHeaderC></StyledTableHeaderC>
-                </tr>
-                </thead>
-            </StyledTable>
+            <StyledA>Client</StyledA>
+            <StyledA>Village</StyledA>
+            <StyledB>Loan Start</StyledB>
+            <StyledB>Loan Due</StyledB>
+            <StyledB>Amount</StyledB>
+            <StyledB>Paid</StyledB>
+            <StyledB>Balance</StyledB>
+            <StyledB>Bags To Sell</StyledB>
+            <StyledB>Bags To Keep</StyledB>
+            <StyledC></StyledC>
         </StyledDiv>
     )
 }

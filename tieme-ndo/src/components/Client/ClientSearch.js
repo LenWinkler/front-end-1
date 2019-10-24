@@ -20,6 +20,11 @@ const StyledInput = styled.input`
   font-size: 20px;
 `;
 
+const OverFlow = styled.div`
+  height: 400px;  
+  overflow: auto;
+`;
+
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,12 +76,14 @@ const ClientSearch = (props) => {
           />
         </StyledForm>
       </StyledSearch>
-      <TableHeader />
-      <StyledContainer>
-        {filteredClient.map(client => {
-              return <ClientCard key={client.id} client={client} />
-        })}
-      </StyledContainer>
+      <OverFlow>
+        <TableHeader />
+        <StyledContainer>
+          {filteredClient.map(client => {
+                return <ClientCard key={client.id} client={client} />
+          })}
+        </StyledContainer>
+      </OverFlow>
     </div>
   );
 }
