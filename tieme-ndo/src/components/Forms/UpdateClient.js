@@ -55,6 +55,23 @@ const Button = styled.button`
     }
 `
 
+const ReturnButton = styled.button`
+    width: 14rem;
+    height: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+    background: #73A85A;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+
+    :hover {
+        background: white;
+        color: #73A85A;
+        border: 1px solid #73A85A;
+    }
+`
+
 const SpaceDiv = styled.div`
     height: 3rem;
 `
@@ -121,6 +138,7 @@ const UpdateClient = props => {
             <Label>Bags To Keep:</Label>
             <OtherInput type="number" name="goalBag" value={client.goalBag} onChange={handleChanges} />
             <Button>Submit Information</Button>
+            <ReturnButton onClick={() => props.history.push('/client-list')}>Return To Client List</ReturnButton>
         </StyledForm>
         <Link to={{
             pathname: `/delete-client/${client.id}`,
