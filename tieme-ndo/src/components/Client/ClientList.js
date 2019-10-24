@@ -31,11 +31,11 @@ const ClientList = props => {
     return (
       <div>
         <Header title={`Client List`} />
-        <StyledDiv>
+        <StyledSubHeader>
           <AddClientButton visibility={'visible'} />
           <NavBar />
           <PercentPaid visibility={'visible'}/>
-        </StyledDiv>
+        </StyledSubHeader>
         <ClientSearch clients={props.clients}/>
       </div>
     )
