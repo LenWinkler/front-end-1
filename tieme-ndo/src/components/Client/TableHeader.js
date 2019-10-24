@@ -2,22 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  width: 90%;
-  height: 200px;
-  margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
 `;
 
-const StyledTable = styled.table`
-    // position: fixed;    
-    // width: 90%
-`;
-
-const StyledTableHead = styled.thead`
-    // position: fixed;
-    // width: 90%;
+const StyledTable = styled.table`    
+    width: 100%
 `;
 
 const StyledTableHeaderA = styled.th`
@@ -42,14 +34,13 @@ const StyledTableHeaderC = styled.th`
     padding: 5px 5px;
     margin: 0 auto;
     width: 5%;
-    border: 1px solid black;
 `;
 
 const TableHeader = () => {
     return (
         <StyledDiv>
             <StyledTable>
-                <StyledTableHead>
+                <thead>
                 <tr>
                     <StyledTableHeaderA>Client</StyledTableHeaderA>
                     <StyledTableHeaderA>Village</StyledTableHeaderA>
@@ -62,7 +53,7 @@ const TableHeader = () => {
                     <StyledTableHeaderB>Bags To Keep</StyledTableHeaderB>
                     <StyledTableHeaderC></StyledTableHeaderC>
                 </tr>
-                </StyledTableHead>
+                </thead>
             </StyledTable>
         </StyledDiv>
     )

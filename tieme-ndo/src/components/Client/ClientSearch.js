@@ -22,13 +22,10 @@ const StyledInput = styled.input`
 
 const StyledContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   width: 90%;
-  height: 400px;
   margin: 0 auto;
-  overflow: scroll;
-  overflow: auto;
 `;
 
 const ClientSearch = (props) => {
@@ -74,14 +71,14 @@ const ClientSearch = (props) => {
           />
         </StyledForm>
       </StyledSearch>
+      <TableHeader />
       <StyledContainer>
-        <TableHeader />
-          {filteredClient.map(client => {
-                return <ClientCard key={client.id} client={client} />
-          })}
+        {filteredClient.map(client => {
+              return <ClientCard key={client.id} client={client} />
+        })}
       </StyledContainer>
     </div>
-);
+  );
 }
 
 export default ClientSearch;

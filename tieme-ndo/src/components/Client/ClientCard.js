@@ -12,6 +12,9 @@ const StyledTable = styled.table`
   width: 100%
 `;
 
+const StyledTableBody = styled.tbody`
+`;
+
 const StyledTableDataA = styled.td`
   color: #333333;
   font-family: 'Lato', sans-serif;
@@ -58,7 +61,7 @@ const ClientCard = (props) => {
   return (
     <StyledDiv>
       <StyledTable>
-        <tbody>
+        <StyledTableBody>
           <tr>
             <StyledTableDataA>{props.client.name}</StyledTableDataA>
             <StyledTableDataA>{props.client.village}</StyledTableDataA>
@@ -71,7 +74,7 @@ const ClientCard = (props) => {
             <StyledTableDataB>{props.client.achievedBag}</StyledTableDataB>
             <StyledTableDataC><StyledLink to={`/update-client/${props.client.id}`}>edit</StyledLink></StyledTableDataC>
           </tr>
-        </tbody>
+        </StyledTableBody>
       </StyledTable>  
     </StyledDiv>
   )
