@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import TableHeader from './TableHeader';
 import ClientCard from './ClientCard';
 
+const StyledSearch = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
+
 const StyledForm = styled.form`
   display: flex;
   justify-content: center;
@@ -13,6 +18,17 @@ const StyledInput = styled.input`
   border: 1px solid black;
   width: 300px;
   font-size: 20px;
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  height: 400px;
+  margin: 0 auto;
+  overflow: scroll;
+  overflow: auto;
 `;
 
 const ClientSearch = (props) => {
@@ -38,28 +54,34 @@ const ClientSearch = (props) => {
   });
 
   return (
-    <section>
-      <StyledForm className="search">
-        <select value={category} onChange={handleSelectChange}>
-          <option value='name'>Name</option>
-          <option value='village'>Village</option>
-          <option value='loanInitialDate'>Loan Start Date</option>
-        </select>
-        <StyledInput
-          type="text"
-          onChange={handleInputChange}
-          value={query}
-          name="name"
-          tabIndex="0"
-          className="prompt search-name"
-          placeholder="search"
-          autoComplete="off"
-        />
-      </StyledForm>
-      <TableHeader />
-      <ClientCard filteredClient={filteredClient} />
-    </section>
-  );
+    <div>
+      <StyledSearch>
+        <StyledForm className="search">
+          <select value={category} onChange={handleSelectChange}>
+            <option value='name'>Name</option>
+            <option value='village'>Village</option>
+            <option value='loanInitialDate'>Loan Start Date</option>
+          </select>
+          <StyledInput
+            type="text"
+            onChange={handleInputChange}
+            value={query}
+            name="name"
+            tabIndex="0"
+            className="prompt search-name"
+            placeholder="search"
+            autoComplete="off"
+          />
+        </StyledForm>
+      </StyledSearch>
+      <StyledContainer>
+        <TableHeader />
+          {filteredClient.map(client => {
+                return <ClientCard key={client.id} client={client} />
+          })}
+      </StyledContainer>
+    </div>
+);
 }
 
 export default ClientSearch;

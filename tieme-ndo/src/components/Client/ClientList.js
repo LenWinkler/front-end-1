@@ -8,13 +8,13 @@ import PercentPaid from '../Misc/PercentPaid';
 import ClientSearch from './ClientSearch';
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const StyledSubHeader = styled.div`
   display: grid;
   grid-template-columns: 200px auto 200px;
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto
 `;
 
 const ClientList = props => {
@@ -40,6 +40,7 @@ const ClientList = props => {
       </div>
     )
   }
+
 }
 
 const mapStateToProps = state => {
