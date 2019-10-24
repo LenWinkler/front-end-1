@@ -18,21 +18,29 @@ const StyledSubHeader = styled.div`
 `;
 
 const ClientList = props => {
+  console.log('fetch', props)
   useEffect(() => {
     props.fetchData();
   }, [])
 
-	return (
-    <div>
-      <Header title={`Client List`} />
-      <StyledSubHeader>
-        <AddClientButton visibility={'visible'} />
-        <NavBar />
-        <PercentPaid visibility={'visible'}/>
-      </StyledSubHeader>
-      <ClientSearch clients={props.clients}/>
-    </div>
-	)
+  if (!props) {
+    return (
+      <p>Loading Client Data...</p>
+    )
+  } else {
+    return (
+      <div>
+        <Header title={`Client List`} />
+        <StyledDiv>
+          <AddClientButton visibility={'visible'} />
+          <NavBar />
+          <PercentPaid visibility={'visible'}/>
+        </StyledDiv>
+        <ClientSearch clients={props.clients}/>
+      </div>
+    )
+  }
+
 }
 
 const mapStateToProps = state => {
