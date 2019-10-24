@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { deleteData } from '../../actions/index';
 import { connect } from 'react-redux';
 import styled from 'styled-components';

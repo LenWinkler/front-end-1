@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
     width: 90%;
     margin: 0 auto;
     border-radius: 10px;
-`;
+`
 
 const StyledLogo = styled.img`
     object-fit: contain;
@@ -22,14 +22,14 @@ const StyledLogo = styled.img`
     border-radius: 50px;
     background-color: white;
     margin: 0 auto;
-`;
+`
 
 const StyledTitle = styled.h1`
     font-size: 50px;
     margin: 0;
     padding: 0;
     // width: 500px;
-`;
+`
 
 const Header = props => {
     return (

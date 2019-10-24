@@ -80,19 +80,18 @@ const SignUp = props => {
         }
 
         if (pass === confirmPass) {
-        e.preventDefault();
-
-        axiosWithAuth()
-        .post('/api/register', newUser)
-        .then(res => {
-            alert(`Succesfully created user "${res.data.info.username}"!`)
-            props.history.push('/')
-    })
-        .catch(err => console.log(err))
-        setUser('');
-        setPass('');
-        setConfirmPass('');
-        setEmail('');
+            e.preventDefault();
+            axiosWithAuth()
+            .post('/api/register', newUser)
+            .then(res => {
+                alert(`Succesfully created user "${res.data.info.username}"!`)
+                props.history.push('/')
+            })
+            .catch(err => console.log(err))
+            setUser('');
+            setPass('');
+            setConfirmPass('');
+            setEmail('');
         } else {
             e.preventDefault();
             alert('Error! Passwords do not match!')
@@ -126,7 +125,6 @@ const SignUp = props => {
         </div>
         </>
     )
-
 }
 
 export default SignUp;

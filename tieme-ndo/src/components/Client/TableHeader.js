@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
     margin: 0 auto;
     position: sticky;
     top: 0;
-`;
+`
 
 const StyledA = styled.p`
     font-weight: bold;
@@ -17,7 +17,7 @@ const StyledA = styled.p`
     padding: 5px 5px;
     margin: 0 auto;
     width: 16%;
-`;
+`
 
 const StyledB = styled.p`
     font-weight: bold;    
@@ -26,7 +26,7 @@ const StyledB = styled.p`
     padding: 5px 5px;
     margin: 0 auto;
     width: 9%;
-`;
+`
 
 const StyledC = styled.p`
     font-weight: bold;    
@@ -35,7 +35,7 @@ const StyledC = styled.p`
     padding: 5px 5px;
     margin: 0 auto;
     width: 5%;
-`;
+`
 
 const TableHeader = () => {
     return (

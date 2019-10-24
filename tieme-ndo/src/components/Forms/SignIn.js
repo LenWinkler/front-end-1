@@ -71,7 +71,6 @@ const SignIn = props => {
         .catch(err => console.log(err))
     }
 
-
     return (
         <div>
             <Header title={`Welcome`} />

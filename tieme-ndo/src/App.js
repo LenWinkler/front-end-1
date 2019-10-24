@@ -15,7 +15,6 @@ import Private from './components/Auth/PrivateRoute';
 function App() {
   return (
     <div className="App">
-      {/* <h1>Tieme Ndo</h1> */}
 
       <Route exact path="/" component={SignIn} /> 
 
@@ -34,6 +33,7 @@ function App() {
       <Private path="/update-client/:id" component={UpdateClient} />
 
       <Private path="/delete-client/:id" component={DeleteClient} />
+      
     </div>
   );
 }

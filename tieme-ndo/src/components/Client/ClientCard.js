@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-`;
+`
 
 const StyledA = styled.p`
   color: #333333;
@@ -14,7 +14,7 @@ const StyledA = styled.p`
   margin: 0 auto;
   width: 16%;
   border: 1px solid black;
-`;
+`
 
 const StyledB = styled.p`
   color: #333333;
@@ -23,7 +23,7 @@ const StyledB = styled.p`
   margin: 0 auto;
   width: 9%;
   border: 1px solid black;
-`;
+`
 
 const StyledC = styled.p`
   color: #333333;
@@ -32,7 +32,7 @@ const StyledC = styled.p`
   margin: 0 auto;
   width: 5%;
   border: 1px solid black;
-`;
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -47,7 +47,7 @@ const StyledLink = styled(Link)`
     color: #73A85A;
     background-color: #333333;
   }
-`;
+`
 
 const ClientCard = (props) => {
   return (
