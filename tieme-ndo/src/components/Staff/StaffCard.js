@@ -28,11 +28,11 @@ const StyledParagraph = styled.p`
 
 const ClientCard = props => {
 	return (
-        <StyledCard>
-          <StyledAvatar src={avatar} alt='blank avatar placeholder'/>
-          <StyledParagraph>USERNAME: {props.member.username}</StyledParagraph>
-          <StyledParagraph>EMAIL: {props.member.email}</StyledParagraph>
-        </StyledCard>
+    <StyledCard>
+      <StyledAvatar src={avatar} alt='blank avatar placeholder'/>
+      <StyledParagraph>USERNAME: {props.member.username}</StyledParagraph>
+      <StyledParagraph>EMAIL: {props.member.email}</StyledParagraph>
+    </StyledCard>
 	)
 }
 

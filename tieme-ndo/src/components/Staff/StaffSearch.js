@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import StaffCard from './StaffCard';
 
+const StyledSearch = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
+
 const StyledForm = styled.form`
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 const StyledInput = styled.input`
@@ -13,7 +19,7 @@ const StyledInput = styled.input`
   font-size: 20px;
 `;
 
-const StyledCardList = styled.div`
+const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -42,29 +48,31 @@ const StaffSearch = (props) => {
   });
 
   return (
-    <section>
+    <div>
+      <StyledSearch>
         <StyledForm className="search">
-            <select value={category} onChange={handleSelectChange}>
-                <option value='username'>Username</option>
-                <option value='email'>Email</option>
-            </select>
-            <StyledInput
-                type="text"
-                onChange={handleInputChange}
-                value={query}
-                name="name"
-                tabIndex="0"
-                className="prompt search-name"
-                placeholder="search"
-                autoComplete="off"
-            />
+          <select value={category} onChange={handleSelectChange}>
+              <option value='username'>Username</option>
+              <option value='email'>Email</option>
+          </select>
+          <StyledInput
+              type="text"
+              onChange={handleInputChange}
+              value={query}
+              name="name"
+              tabIndex="0"
+              className="prompt search-name"
+              placeholder="search"
+              autoComplete="off"
+          />
         </StyledForm>
-        <StyledCardList>
-            {filteredStaff.map(member => {
-                return <StaffCard key={member.id} member={member} />
-            })}
-        </StyledCardList>
-    </section>
+      </StyledSearch>
+      <StyledContainer>
+        {filteredStaff.map(member => {
+            return <StaffCard key={member.id} member={member} />
+        })}
+      </StyledContainer>
+    </div>
   );
 }
 
