@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
-import Header from '../Misc/Header';
-import NavBar from '../Misc/NavBar';
 import StaffCard from './StaffCard';
 
 const StyledForm = styled.form`
@@ -13,6 +11,14 @@ const StyledInput = styled.input`
   border: 1px solid black;
   width: 300px;
   font-size: 20px;
+`;
+
+const StyledCardList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const StaffSearch = (props) => {
@@ -37,8 +43,6 @@ const StaffSearch = (props) => {
 
   return (
     <section>
-        <Header title={`Staff List`} />
-        <NavBar />
         <StyledForm className="search">
             <select value={category} onChange={handleSelectChange}>
                 <option value='username'>Username</option>
@@ -54,13 +58,12 @@ const StaffSearch = (props) => {
                 placeholder="search"
                 autoComplete="off"
             />
-            <button type='submit'>Search</button>
         </StyledForm>
-        <div className="list">
+        <StyledCardList>
             {filteredStaff.map(member => {
                 return <StaffCard key={member.id} member={member} />
             })}
-        </div>
+        </StyledCardList>
     </section>
   );
 }

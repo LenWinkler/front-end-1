@@ -4,6 +4,7 @@ import { addData } from '../../actions/index';
 
 const AddClient = props => {
     const [client, setClient] = useState({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
+    const [isAdding, setIsAdding] = useState(false);
 
     const handleChanges = event => {
         setClient({ ...client, [event.target.name]: event.target.value });
@@ -25,8 +26,16 @@ const AddClient = props => {
         //Make an API post request here to send newClient object.  If response is successful, then update state, else error msg.
         };
         props.addData(newClient);
+        alert(`Successfully added user "${client.name}"`);
         setClient({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "", paidAmount: "", dueAmount: "", goalBag: "", achievedBag: "" });
+        props.history.push('/client-list');
     };
+
+    if(props.isAdding) {
+        return (
+            <p>Adding Client...</p>
+        )
+    } else {
 
     return (
     <>
@@ -81,6 +90,13 @@ const AddClient = props => {
         <button onClick={() => props.history.push('/client-list')}>Return to Client List</button>
     </>
     );
+  }
 };
 
-export default connect(null, { addData })(AddClient);
+const mapStateToProps = state => {
+    return {
+        isAdding: state.isAdding
+    }
+}
+
+export default connect(mapStateToProps, { addData })(AddClient);

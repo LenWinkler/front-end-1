@@ -1,4 +1,4 @@
-import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE, STAFF_START_FETCH, STAFF_FETCH_SUCCESS, STAFF_FETCH_FAILURE } from '../actions/index';
+import { START_FETCH, FETCH_SUCCESS, FETCH_FAILURE, START_ADD, ADD_SUCCESS, ADD_FAILURE, STAFF_START_FETCH, STAFF_FETCH_SUCCESS, STAFF_FETCH_FAILURE, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAILURE, DELETE_START, DELETE_SUCCESS, DELETE_FAILURE } from '../actions/index';
 
 const initialState = {
     farmers: [],
@@ -7,6 +7,7 @@ const initialState = {
     isAdding: false,
     isDeleting: false,
     isStaffFetching: false,
+    isUpdating: false,
     error: ''
 }
 
@@ -68,6 +69,44 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 isStaffFetching: false
+            }
+        case UPDATE_START:
+            return {
+                ...state,
+                isAdding: true,
+                error: ''
+            }
+        case UPDATE_SUCCESS:
+            return {
+                ...state,
+                isUpdating: false,
+                error: '',
+                farmers: [...state.farmers.filter(item => { return item.id !== action.payload.id}), action.payload]
+            }
+        case UPDATE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isUpdating: false
+            }
+        case DELETE_START:
+            return {
+                ...state,
+                isDeleting: true,
+                error: ''
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                isDeleting: false,
+                error: '',
+                farmers: state.farmers.filter(item => { return item.id !== action.payload})
+            }
+        case DELETE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isDeleting: false
             }
 
             default:

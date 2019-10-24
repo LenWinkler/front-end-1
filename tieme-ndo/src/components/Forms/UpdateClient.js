@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from '../Auth/AxiosWithAuth';
 import { connect } from 'react-redux';
+import { updateData } from '../../actions/index';
+import { Link } from 'react-router-dom';
 
 
 
 const UpdateClient = props => {
     const [client, setClient] = useState({
-        id: null,
+        id: 0,
         name: "",
         village: "",
         loanAmount: 0,
@@ -17,6 +19,7 @@ const UpdateClient = props => {
         achievedBag: 0,
         goalBag: 0
     });
+
     const handleChanges = e => {
         setClient({ ...client, [e.target.name]: e.target.value });
     }
@@ -30,12 +33,22 @@ const UpdateClient = props => {
         })
     }, [])
 
+    const submitChanges = e => {
+        e.preventDefault();
+        props.updateData(client);
+        alert(`Updated information for ${client.name}`);
+        props.history.push('/client-list')
+    }
     
-
+    if (props.isUpdating) {
+        return (
+            <p>Updating Client Information...</p>
+        )
+    } else {
     return(
         <>
         <h2>Update Client Information</h2>
-        <form>
+        <form onSubmit={submitChanges}>
             <label>Name:</label>
             <input type="text" name="name" value={client.name} onChange={handleChanges} />
             <label>Village:</label>
@@ -56,9 +69,21 @@ const UpdateClient = props => {
             <input type="number" name="goalBag" value={client.goalBag} onChange={handleChanges} />
             <button>Submit Information</button>
         </form>
+        <Link to={{
+            pathname: `/delete-client/${client.id}`,
+            state: {
+                client: client
+            }
+        }}>DELETE THIS CLIENT</Link>
         </>
     )
-
+  }
 }
 
-export default UpdateClient;
+const mapStateToProps = state => {
+    return {
+        isUpdating: state.isUpdating
+    }
+}
+
+export default connect(mapStateToProps , { updateData })(UpdateClient);

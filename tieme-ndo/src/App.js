@@ -8,6 +8,7 @@ import StaffCard from './components/Staff/StaffCard';
 import ClientCard from './components/Client/ClientCard';
 import AddClient from './components/Forms/AddClient'
 import UpdateClient from './components/Forms/UpdateClient'
+import DeleteClient from './components/Forms/DeleteClient';
 import SignIn from './components/Forms/SignIn';
 import Private from './components/Auth/PrivateRoute';
 
@@ -31,6 +32,8 @@ function App() {
       <Private path="/add-client" component={AddClient} />
 
       <Private path="/update-client/:id" component={UpdateClient} />
+
+      <Private path="/delete-client/:id" component={DeleteClient} />
     </div>
   );
 }
