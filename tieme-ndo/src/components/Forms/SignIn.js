@@ -25,8 +25,8 @@ const PassInput = styled.input`
 `
 
 const Button = styled.button`
-    width: 10rem;
-    height: 1.7rem;
+    width: 12rem;
+    height: 2rem;
     margin: 1rem 0;
     border-radius: 5px;
     background: #73A85A;

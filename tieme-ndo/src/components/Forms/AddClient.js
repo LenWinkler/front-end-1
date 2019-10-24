@@ -13,7 +13,7 @@ const StyledForm = styled.form`
 const Button = styled.button`
     width: 12rem;
     height: 3rem;
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
     border-radius: 5px;
     background: #73A85A;
     color: white;
@@ -42,6 +42,10 @@ const OtherInput = styled.input`
     margin: 1rem 0;
     font-size: 1.4rem;
     border: 1px solid #4e4e4e;
+`
+const Required = styled.h3`
+    color: #363636;
+    opacity: .8;
 `
 
 const AddClient = props => {
@@ -80,6 +84,7 @@ const AddClient = props => {
     return (
     <>
         <Header title={`Add New Client`} />
+        <Required>*All fields are required</Required>
         <StyledForm onSubmit={submitForm}>
 
                 <NameInput
