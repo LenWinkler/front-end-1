@@ -1,10 +1,55 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { addData } from '../../actions/index';
+import styled from 'styled-components';
+import Header from '../Misc/Header';
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+`
+
+const Button = styled.button`
+    width: 12rem;
+    height: 3rem;
+    margin: 1.2rem 0;
+    border-radius: 5px;
+    background: #73A85A;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+
+    :hover {
+        background: white;
+        color: #73A85A;
+        border: 1px solid #73A85A;
+    }
+`
+
+const NameInput = styled.input`
+    height: 3rem;
+    width: 18rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    border: 1px solid #4e4e4e;
+`
+
+const OtherInput = styled.input`
+    height: 3rem;
+    width: 18rem;
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    border: 1px solid #4e4e4e;
+`
+const Required = styled.h3`
+    color: #363636;
+    opacity: .8;
+`
 
 const AddClient = props => {
     const [client, setClient] = useState({ name: "", village: "", loanAmount: "", loanInitialDate: "", loanDueDate: "" });
-    const [isAdding, setIsAdding] = useState(false);
 
     const handleChanges = event => {
         setClient({ ...client, [event.target.name]: event.target.value });
@@ -23,7 +68,6 @@ const AddClient = props => {
             dueAmount: client.loanAmount,
             goalBag: 0,
             achievedBag: 0
-        //Make an API post request here to send newClient object.  If response is successful, then update state, else error msg.
         };
         props.addData(newClient);
         alert(`Successfully added user "${client.name}"`);
@@ -31,59 +75,62 @@ const AddClient = props => {
         props.history.push('/client-list');
     };
 
+    if(props.isAdding) {
+        return (
+            <p>Adding Client...</p>
+        )
+    } else {
+
     return (
     <>
-        <form onSubmit={submitForm}>
-            <label htmlFor="name">Name:</label>
-                <input
+        <Header title={`Add New Client`} />
+        <Required>*All fields are required</Required>
+        <StyledForm onSubmit={submitForm}>
+
+                <NameInput
                     id="name"
                     type="text"
                     name="name"
+                    placeholder="Name"
                     onChange={handleChanges}
                     value={client.name}
                 />
-                {client.name.length === 0 ? <p>Name is required</p> : ''}
-            <label htmlFor="village">Village:</label>
-                <input
+                <OtherInput
                     id="village"
                     name="village"
+                    placeholder="Village"
                     onChange={handleChanges}
                     value={client.village}
                 />
-                {client.village.length === 0 ? <p>Village is required</p> : ''}
-                <label htmlFor="loanInitialDate">Loan Start Date:</label>
-                <input
-                    id="loanInitialDate"
-                    name="loanInitialDate"
-                    onChange={handleChanges}
-                    value={client.loanInitialDate}
-                />
-                {client.loanInitialDate.length === 0 ? <p>Enter date of loan</p> : ''}
-            <label htmlFor="loanDueDate">Loan Due Date:</label>
-                <input
-                    id="loanDueDate"
-                    name="loanDueDate"
-                    onChange={handleChanges}
-                    value={client.loanDueDate}
-                />
-                {client.loanDueDate.length === 0 ? <p>Enter due date of loan</p> : ''}
-            <label htmlFor="loanAmount">Loan Amount:</label>
-                <input
+                <OtherInput
                     id="loanAmount"
                     name="loanAmount"
+                    placeholder="Loan Amount"
                     onChange={handleChanges}
                     value={client.loanAmount}
                 />
-                {client.loanAmount.length === 0 ? <p>Enter loan amount</p> : ''}
+                <OtherInput
+                    id="loanInitialDate"
+                    name="loanInitialDate"
+                    placeholder="Loan Start Date"
+                    onChange={handleChanges}
+                    value={client.loanInitialDate}
+                />
+                <OtherInput
+                    id="loanDueDate"
+                    name="loanDueDate"
+                    placeholder="Loan Due Date"
+                    onChange={handleChanges}
+                    value={client.loanDueDate}
+                />
             
-            
-            
-            <button type="submit">Add Client</button>
-        </form>
+            <Button type="submit">Add Client</Button>
+        </StyledForm>
         
-        <button onClick={() => props.history.push('/client-list')}>Return to Client List</button>
+        <Button onClick={() => props.history.push('/client-list')}>Return to Client List</Button>
     </>
     );
+  }
 };
 
 const mapStateToProps = state => {

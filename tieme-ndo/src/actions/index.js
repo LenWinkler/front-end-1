@@ -26,7 +26,7 @@ export const fetchData = () => dispatch => {
     dispatch({ type: START_FETCH });
 
     axiosWithAuth()
-    .get('api/client/all')
+    .get('/api/client/all')
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err }));
 }
@@ -63,7 +63,7 @@ export const fetchStaffData = () => dispatch => {
     dispatch({ type: STAFF_START_FETCH });
 
     axiosWithAuth()
-    .get('api/employee/all')
+    .get('/api/employee/all')
     .then(res => dispatch({ type: STAFF_FETCH_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: STAFF_FETCH_FAILURE, payload: err }));
 }
