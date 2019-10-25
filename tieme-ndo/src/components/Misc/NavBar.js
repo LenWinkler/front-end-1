@@ -5,15 +5,15 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
     display: flex;
     align-items: center;
-`;
+`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: #333333;
+    color: white;
     background-color: #73A85A;
     font-weight: bold;
     font-family: 'Work Sans', sans-serif;
-    border: transparent;
+    border: 1px solid #73A85A;
     border-radius: 5px;
     width: 100px;
     margin: 15px;
@@ -21,9 +21,9 @@ const StyledLink = styled(Link)`
 
     :hover {
         color: #73A85A;
-        background-color: #333333; 
+        background-color: white;
     }
-`;
+`
 
 const HeaderNav = () => {
     return (

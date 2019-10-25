@@ -25,7 +25,7 @@ const PercentPaid = (props) => {
         border-radius: 50px;
         font-family: 'Work Sans', sans-serif;
         visibility: ${props.visibility};
-    `;
+    `
 
     return (
         <StyledDiv>
